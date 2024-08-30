@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+:root {
+    --black: #111;
+    --white: #fff;
+    --eons-cyan: #2af8ff;
+    --eons-magenta: #ff44fe;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+a {
+    color: var(--eons-cyan);
+}
+
+a:hover {
+    color: var(--eons-magenta);
+}
+
+h1, h2, .h1, .h2 {
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+h1, .h1 {
+    font-size: 3em;
+}
+
+h2, .h2 {
+    font-size: 2.5em;
+}
+
+button, .btn, input, .form-control, textarea {
+    border-radius: 20px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+input, .form-control {
+    font-weight: 400;
+}
+
+textarea, textarea.form-control {
+    padding: 5px 20px;
+    line-height: 1.5;
+    min-height: 64px;
+}
+
+img.img-fluid {
+    border-radius: 20px;
+}
+
+/* Button Styles */
+.btn-primary {
+    --bs-btn-bg: var(--eons-cyan);
+    --bs-btn-border-color: var(--eons-cyan);
+    --bs-btn-color: var(--black);
+    --bs-btn-hover-bg: var(--eons-magenta);
+    --bs-btn-hover-border-color: var(--eons-magenta);
+    --bs-btn-hover-color: var(--black);
+    --bs-btn-active-bg: var(--eons-magenta);
+    --bs-btn-active-border-color: var(--eons-magenta);
+    --bs-btn-active-color: var(--black);
+}
+
+.btn-outline-secondary {
+    --bs-btn-border-color: var(--white);
+    --bs-btn-color: var(--white);
+    --bs-btn-hover-bg: var(--white);
+    --bs-btn-hover-border-color: var(--white);
+    --bs-btn-hover-color: var(--black);
+    --bs-btn-active-bg: var(--white);
+    --bs-btn-active-border-color: var(--white);
+    --bs-btn-active-color: var(--black);
+}
+
+/* Card Styles */
+.card {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Section Styles */
+section > .row {
+    min-height: 100vh;
+    position: relative;
+    z-index: 2;
+}
+
+#home, #about {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+#home {
+    background-image: url(../../images/space.jpg);
+}
+
+#home:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.7);
+    z-index: 1;
+}
+
+#about {
+    background-image: url(../../images/about.jpg);
+}
+
+#about:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.5);
+    z-index: 1;
+}
+
+#about i {
+    font-size: 48px;
+    background: linear-gradient(to right, var(--eons-cyan) 20%, var(--eons-magenta) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Services Section */
+#services {
+    background: linear-gradient(to bottom right, var(--eons-cyan) 20%, var(--eons-magenta) 80%);
+    color: var(--black);
+    position: relative;
+}
+
+#services:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.5);
+    z-index: 1;
+}
+
+#services .container {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+#services .card {
+    border: none;
+}
+
+/* Footer Styles */
+.footer-icon {
+    height: auto;
+    width: 30px;
+}
+
+footer svg {
+    color: var(--white);
+}
+
+/* Navigation Styles */
+nav {
+    position: fixed;
+    height: 100vh;
+    width: auto;
+    right: 0;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+nav ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: item;
+    opacity: 0.3;
+    width: 60px;
+    transition: all 0.3s ease;
+}
+
+nav ol:hover {
+    opacity: 1;
+    width: min-content;
+}
+
+nav ol li {
+    margin-bottom: 7vh;
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 48px;
+    text-shadow: 1px 1px 0px var(--black), 1px -1px 0px var(--black), -1px 1px 0px var(--black), -1px -1px 0px var(--black);
+}
+
+nav ol li:last-child {
+    margin-bottom: 0;
+}
+
+nav ol li::before {
+    content: "0" counter(item) "."; 
+    counter-increment: item;
+    font-size: 2rem;
+    color: var(--white);
+    margin-right: 10px;
+}
+
+nav ol li a {
+    text-decoration: none;
+    color: var(--eons-cyan);
+    font-size: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+nav ol li:hover a {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-5px);
+}
+
+nav ol li.active::before {
+    color: var(--eons-cyan);
+}
+
+nav ol li.active a {
+    color: var(--eons-cyan);
+    opacity: 0;
+    visibility: hidden;
+}
+
+nav ol li.active:hover a {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animation Styles */
+.spacecraft {
+    position: absolute;
+    top: -50px;
+    left: -150px;
+    width: 100px;
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    animation: ufoAnimation 10s ease-in-out 5s infinite;
+}
+
+.spacecraft img {
+    width: 100%;
+}
+
+@keyframes ufoAnimation {
+    0% {
+        transform: translate(-150vw, -50vh);
+        opacity: 0;
+    }
+    5% {
+        transform: translate(70vw, 20vh);
+        opacity: 1;
+    }
+    25% {
+        transform: translate(70vw, 20vh);
+        opacity: 1;
+    }
+    30% {
+        transform: translate(30vw, 70vh);
+        opacity: 1;
+    }
+    40% {
+        transform: translate(30vw, 70vh);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(150vw, 100vh);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(150vw, 100vh);
+        opacity: 0;
+    }
+}
